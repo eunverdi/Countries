@@ -64,6 +64,7 @@ final class DetailsViewController: UIViewController {
         }
         countryFlagImageView.kf.setImage(with: imageURL, options: [.processor(SVGImgProcessor())])
         countryCodeLabel.text = countryDetail?.data?.code
+        title = countryDetail?.data?.name
     }
     
     @IBAction func moreInformationButtonTapped(_ sender: Any) {
