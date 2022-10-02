@@ -36,7 +36,7 @@ final class CustomTableViewCell: UITableViewCell {
                     }
                     self.favouriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
                 } else {
-                    CoreDataManager.shared.createFavouriteCountryFromDetailPage(with: Country(code: self.countryID, name: self.countryNameLabel.text!))
+                    CoreDataManager.shared.createFavouriteCountry(with: Country(code: self.countryID, name: self.countryNameLabel.text!))
                     self.favouriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 }
             case .failure(let error):
@@ -45,20 +45,7 @@ final class CustomTableViewCell: UITableViewCell {
         }
     }
 
-    
     func configureCountryComponents(model: Country) {
-        countryNameLabel.text = model.name
-        CoreDataManager.shared.checkIsFavourite(with: countryID) { result in
-            switch result {
-            case .success(let bool):
-                bool ? self.favouriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : self.favouriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-
-    func configureFavouriteCountryComponents(model: FavouriteCountry) {
         countryNameLabel.text = model.name
         CoreDataManager.shared.checkIsFavourite(with: countryID) { result in
             switch result {

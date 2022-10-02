@@ -48,7 +48,7 @@ class CoreDataManager {
         }
     }
 
-    func createFavouriteCountryFromDetailPage(with model: Country) {
+    func createFavouriteCountry(with model: Country) {
         let favouriteCountry = FavouriteCountry(context: moc)
         favouriteCountry.code = model.code
         favouriteCountry.name = model.name

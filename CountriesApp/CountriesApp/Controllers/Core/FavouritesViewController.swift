@@ -64,7 +64,7 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.countryID = countries[indexPath.section].code!
-        cell.configureFavouriteCountryComponents(model: countries[indexPath.section])
+        cell.configureCountryComponents(model: Country(code: countries[indexPath.row].code!, name: countries[indexPath.row].name!))
         return cell
     }
     

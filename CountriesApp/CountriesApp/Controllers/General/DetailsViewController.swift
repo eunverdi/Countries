@@ -85,7 +85,7 @@ final class DetailsViewController: UIViewController {
                     }
                     self.favouriteButton.image = UIImage(systemName: "heart")
                 } else {
-                    CoreDataManager.shared.createFavouriteCountryFromDetailPage(with: Country(code: (self.countryDetail?.data?.code)!, name: (self.countryDetail?.data?.name)!))
+                    CoreDataManager.shared.createFavouriteCountry(with: Country(code: (self.countryDetail?.data?.code)!, name: (self.countryDetail?.data?.name)!))
                     self.favouriteButton.image = UIImage(systemName: "heart.fill")
                 }
             case .failure(let error):
